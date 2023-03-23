@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Authorization;
+@inject IAuthorizationService AuthorizationService
+
+<h1>Index Product</h1>
+
+
+
+@if (AuthorizationService.AuthorizeAsync(User, "Permissions.Products.View").Result.Succeeded)
+{
+    <h3> User CAN View Product</h3>
+}
+
+
+@if (AuthorizationService.AuthorizeAsync(User, "Permissions.Products.Create").Result.Succeeded)
+{
+    <h3> User CAN create Product</h3>
+}
+
+
+@if (AuthorizationService.AuthorizeAsync(User, "Permissions.Products.Edit").Result.Succeeded)
+{
+    <h3> User CAN edit Product</h3>
+}
+

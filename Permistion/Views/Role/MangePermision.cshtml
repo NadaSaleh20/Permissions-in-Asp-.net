@@ -1,0 +1,39 @@
+﻿@model RoleViewModel
+
+<form  method="post">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>@Model.RoleName</h2>
+            Add/Remove Permision
+        </div>
+    </div>
+
+    <div class="card-body">
+        <input type="hidden" asp-for="Id" />
+        @for (int i = 0; i <Model.RuleCliam.Count(); i++)
+        {
+          <div class="form-check">
+        <input type="hidden" asp-for=" @Model.RuleCliam[i].DisplayValue" />
+        <input asp-for="@Model.RuleCliam[i].IsSelected"  class="form-check-input">
+        <label class="form-check-label" asp-for="@Model.RuleCliam[i].IsSelected">
+           @Model.RuleCliam[i].DisplayValue
+        </label>
+         </div>
+
+        }
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+
+    <div class="card-footer">
+        <button class="btn btn-primary" type="submit"> Save</button>
+        <a class="btn btn-secondary" asp-action="Index"> Cancel</a>
+    </div>
+</form>
+
+
+
+
+
+
+

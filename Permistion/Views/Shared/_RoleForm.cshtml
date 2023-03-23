@@ -1,0 +1,12 @@
+﻿@model Permistion.ViewModel.RoleViewModel
+
+<form method="post" asp-action="AddRule">
+    <label asp-for="RoleName"></label>
+    <input asp-for="RoleName" class="form-control" />
+    <span asp-validation-for="RoleName" class="text-danger"></span>
+    <br />
+
+    <div class="form-group">
+        <input type="submit" value="Add Role" class="btn btn-primary" />
+    </div>
+</form>
